@@ -17,7 +17,6 @@ export const initializePaystack = async (req, res) => {
       },
       { headers: { Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}` } }
     );
-    console.log(response.data.data.authorization_url);
     res.json(response.data.data);
   } catch (err) {
     res.status(500).json({ error: err.message });
