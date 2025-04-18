@@ -2,7 +2,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config()
-// console.log("ff",process.env.PAYSTACK_SECRET_KEY)
 
 
 // Paystack
@@ -31,7 +30,6 @@ export const verifyPaystack = async (req, res) => {
     const response = await axios.get(`https://api.paystack.co/transaction/verify/${reference}`, {
       headers: { Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}` },
     });
-    console.log("jj", response.data.data)
     res.json(response.data.data);
   } catch (err) {
     res.status(500).json({ error: err.message });
